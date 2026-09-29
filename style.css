@@ -25,13 +25,15 @@ img{max-width:100%;display:block}
 
 /* hero */
 .hero{position:relative;overflow:hidden;background:radial-gradient(900px 480px at 15% -10%,color-mix(in srgb,var(--accent2) 16%,transparent),transparent 60%),radial-gradient(700px 420px at 100% 0%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 60%),var(--bg)}
+.hero .cursor-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(320px circle at var(--mx,50%) var(--my,30%),color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%);transition:opacity .3s ease;opacity:0}
+.hero:hover .cursor-glow{opacity:1}
 .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(color-mix(in srgb,var(--ink) 5%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--ink) 5%,transparent) 1px,transparent 1px);background-size:42px 42px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 75%);mask-image:linear-gradient(180deg,#000,transparent 75%);pointer-events:none}
 .hero-in{position:relative;padding:56px 0 88px}
 .hero h1{font-weight:800;font-size:clamp(2.5rem,7vw,4.6rem);line-height:1.05;margin:0 0 20px;letter-spacing:-.02em;max-width:16ch}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero p{max-width:52ch;color:var(--muted);font-size:1.15rem;margin:0 0 34px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;text-decoration:none;background:var(--accent);color:var(--on-accent);transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -8px color-mix(in srgb,var(--accent) 60%,transparent)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;text-decoration:none;background:var(--accent);color:var(--on-accent);transition:box-shadow .15s}
+.btn:hover{box-shadow:0 10px 24px -8px color-mix(in srgb,var(--accent) 60%,transparent)}
 .btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:10px}
 .btn.alt:hover{border-color:var(--accent)}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;list-style:none;padding:0}
@@ -130,4 +132,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 .nav a.link{position:relative}
 .nav a.link::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:width .25s ease}
 .nav a.link:hover::after{width:100%}
+.phone-wrap{perspective:900px}
+.phone{transform-style:preserve-3d;transition:transform .12s ease}
+.manifesto{text-align:center;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.manifesto p{font-weight:800;font-size:clamp(1.6rem,4.5vw,2.8rem);line-height:1.25;letter-spacing:-.01em;margin:0;max-width:18ch;margin-inline:auto}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}[data-animate],[data-animate="stagger"]>*{opacity:1;transform:none;transition:none}.brand img,.hero::after,.kicker::before,.phone{animation:none}}
+@media (prefers-reduced-motion:reduce){.phone{transition:none}.hero .cursor-glow{display:none}}
